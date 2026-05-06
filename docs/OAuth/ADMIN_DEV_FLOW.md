@@ -1,4 +1,4 @@
-# OAuth Flow — BeatGacha
+# OAuth Flow - BeatGacha
 
 ## Admin Setup (one-time)
 
@@ -13,16 +13,16 @@
 
 ---
 
-## User Flow — PKCE (recommended for mods)
+## User Flow - PKCE (recommended for mods)
 
-### Step 1 — Generate PKCE values in your mod
+### Step 1 - Generate PKCE values in your mod
 
 ```
 code_verifier  = cryptographically random 64 bytes → base64url encode
 code_challenge = SHA-256(code_verifier) → base64url encode
 ```
 
-### Step 2 — Open this URL in the user's browser
+### Step 2 - Open this URL in the user's browser
 
 ```
 https://beatgacha.com/oauth/authorize
@@ -42,7 +42,7 @@ https://beatgacha.com/oauth/authorize
 
 Your mod must be running a tiny HTTP server on that port to catch the redirect.
 
-### Step 3 — Exchange code for tokens (no client_secret needed)
+### Step 3 - Exchange code for tokens (no client_secret needed)
 
 ```http
 POST https://beatgacha.com/api/oauth/token
@@ -70,7 +70,7 @@ Store both tokens. The server verifies `SHA-256(code_verifier) == code_challenge
 
 ---
 
-## User Flow — client_secret (server-side apps only)
+## User Flow - client_secret (server-side apps only)
 
 Only use this if your backend is a private server and the secret never ships in client code.
 
